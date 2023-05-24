@@ -107,8 +107,8 @@ jobs:
 
       - name: Build and Push Container
         run:
-          --config cloudbuild.yaml \
-          --substitutions _BASIC_AUTH_USERNAME=$BASIC_AUTH_USERNAME, _BASIC_AUTH_PASSWORD=$BASIC_AUTH_PASSWORD, _IMAGE_TAG=${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE }}:${{ github.sha }} \
+          
+          --substitutions _BASIC_AUTH_USERNAME=$BASIC_AUTH_USERNAME, _BASIC_AUTH_PASSWORD=$BASIC_AUTH_PASSWORD, _IMAGE_TAG=${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE }}:${{ github.sha }}
           docker build -t "${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE }}:${{ github.sha }}" ./
           docker push "${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE }}:${{ github.sha }}"
 
