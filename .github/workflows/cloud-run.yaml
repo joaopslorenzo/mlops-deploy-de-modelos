@@ -120,7 +120,7 @@ jobs:
           region: ${{ env.REGION }}
           # NOTE: If using a pre-built image, update the image name here
           image: gcr.io/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE }}:${{ github.sha }}
-          allow-unauthenticated: true
+          credentials: ${{ secrets.GCP_CREDENTIALS }}
           # NOTE: You can also set env variables here:
           #  env_vars: |
           #  NODE_ENV=production
