@@ -107,7 +107,7 @@ jobs:
 
       - name: Build and Push Container
         run: |-
-          docker build -t "${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE }}:${{ github.sha }}" --build-arg BASIC_AUTH_USERNAME_ARG = ${{ env.BASIC_AUTH_USERNAME }} --build-arg BASIC_AUTH_PASSWORD_ARG = ${{ env.BASIC_AUTH_PASSWORD }} .
+          docker build -t "${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE }}:${{ github.sha }}" --build-arg BASIC_AUTH_USERNAME_ARG=${{ env.BASIC_AUTH_USERNAME }} --build-arg BASIC_AUTH_PASSWORD_ARG=${{ env.BASIC_AUTH_PASSWORD }} .
           docker push "${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE }}:${{ github.sha }}"
 
       # END - Docker auth and build
